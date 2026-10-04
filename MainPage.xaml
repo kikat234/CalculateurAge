@@ -10,10 +10,34 @@
                    Placeholder="Votre nom"/>
             <Label Text="Date de naissance" FontSize="16"/>
             <DatePicker Date="{Binding DateNaissance}"/>
+
             <Button Text="Calculer"
                     Command="{Binding CalculerCommand}"/>
+            <Button Text="Effacer"
+                    Command="{Binding EffacerCommand}"/>
+
+            <Label Text="{Binding Erreur}" TextColor="Red"
+                   IsVisible="{Binding ErreurVisible}"/>
+
             <Label Text="{Binding Resultat}" FontSize="20"
                    IsVisible="{Binding ResultatVisible}"/>
+            <Label Text="{Binding Message}" FontSize="18"
+                   IsVisible="{Binding ResultatVisible}"/>
+            <Label Text="{Binding JoursRestants}" FontSize="16"
+                   IsVisible="{Binding ResultatVisible}"/>
+
+            <Button Text="Voir le détail"
+                    Command="{Binding VoirDetailCommand}"/>
+
+            <Label Text="Historique" FontSize="16" FontAttributes="Bold"/>
+            <CollectionView ItemsSource="{Binding Historique}"
+                            HeightRequest="200">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Label Text="{Binding .}" Padding="0,4"/>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
         </VerticalStackLayout>
     </ScrollView>
 </ContentPage>
